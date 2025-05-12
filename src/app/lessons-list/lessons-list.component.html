@@ -1,0 +1,23 @@
+
+ <mat-grid-list cols="3" rowHeight="2:1" gutterSize="16px">
+  <mat-grid-tile *ngFor="let lesson of lessons"   
+      [ngClass]="{ 'passed-time': isLessonInPast(lesson), 'not-passed-time': !isLessonInPast(lesson) }">
+   
+    <app-child-lesson-details [lesson]="lesson"></app-child-lesson-details>
+</mat-grid-tile>
+</mat-grid-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

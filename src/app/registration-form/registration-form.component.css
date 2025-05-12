@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.table-wrapper {
+  width: 100%;
+  max-width: 900px; /* מצמצם את הרוחב */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* רק במקרה */
+  padding: 15px;
+}
+
+/* עיצוב הטבלה עצמה */
+.ag-theme-alpine.custom-grid .ag-header {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  font-size: 13px;
+  color: #333;
+}
+
+.ag-theme-alpine.custom-grid .ag-cell {
+  font-size: 12px;
+  padding: 6px;
+  color: #444;
+}
+
+/* עיצוב כפתור */
+.ag-theme-alpine.custom-grid button {
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.ag-theme-alpine.custom-grid button:hover {
+  background-color: #00796b;
+}
