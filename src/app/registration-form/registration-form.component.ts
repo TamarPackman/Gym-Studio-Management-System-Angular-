@@ -4,7 +4,9 @@ import { ColDef } from 'ag-grid-community';
 import { ModuleRegistry } from 'ag-grid-community'; 
 import { ClientSideRowModelModule } from 'ag-grid-community'; 
 import { Router } from '@angular/router';
-import { AgCharts } from 'ag-charts-angular';
+
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterToCourseComponent } from '../register-to-course/register-to-course.component';
 import { AgChartOptions } from 'ag-charts-community';
 // רישום מודולים של ag-grid
 ModuleRegistry.registerModules([ ClientSideRowModelModule ]); 
@@ -27,11 +29,9 @@ export interface Registration {
 })
 export class RegistrationFormComponent {
   
-  constructor(private Router: Router) {
+  constructor(private Router: Router,private dialog: MatDialog) {
     
   }
-
-  
   columnDefs: ColDef[] = [
     { field: 'firstName', headerName: 'First Name',width: 120 },
     { field: 'lastName', headerName: 'Last Name' ,width: 120},
@@ -55,7 +55,6 @@ export class RegistrationFormComponent {
     }
   ];
 
-  // הגדרת ברירת המחדל של העמודות
   defaultColDef = {
 sortable: true,
 filter: true,
@@ -69,4 +68,16 @@ resizable: true,
     { firstName: 'Miriam', lastName: 'Levi', phone: '054-7654321', id: '987654321', lesson: 'Physics for Beginners', price: 450, paid: false },
     { firstName: 'Chaya', lastName: 'Rosenfeld', phone: '050-1122334', id: '246813579', lesson: 'Math 101', price: 400, paid: true }
   ];
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RegisterToCourseComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.rowData = [...this.rowData, result];
+        console.log('נרשם:', result);
+      }
+    });
+  }
 }
