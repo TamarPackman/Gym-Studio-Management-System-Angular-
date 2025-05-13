@@ -1,27 +1,64 @@
-# FinalProject
+# 💪 פרויקט סיכום - מערכת ניהול לסטודיו להתעמלות
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+מערכת אינטראקטיבית לניהול שיעורי התעמלות ורישום נרשמות, כולל לוגין, הצגת שיעורים, מעקב תשלומים והצגת מידע בטבלאות מתקדמות.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🔧 טכנולוגיות בשימוש
 
-## Code scaffolding
+- **Angular 17**
+- **Reactive Forms**
+- **Routing**
+- **AG-Grid** – להצגת טבלאות מידע מתקדמות
+- **Angular Material** – ממשק משתמש מודרני ונוח
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📁 מבנה המסכים במערכת
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. 🔐 מסך לוגין
+- טופס עם שדות:
+  - שם משתמש
+  - סיסמה
+- לחצן "התחבר"
+- בדיקה מול רשימת משתמשים (בשירות)
+- ניתוב לפי תפקיד:
+  - מורה → מסך שיעורים
+  - רכזת רישום → מסך נרשמות
+- טיפול בשגיאה: הצגת הודעה על משתמש/סיסמה שגויים
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. 📚 מסך שיעורים
+- תצוגת כרטיסיות (כרטיס לכל שיעור)
+- כל שיעור כולל:
+  - שם השיעור
+  - שם המורה
+  - מספר מפגשים
+  - תאריך התחלה
+  - מחיר
+  - יום
+  - שעה
+- אם השיעור התחיל – הדגשה מיוחדת רקע
+- קומפוננטת בן לכל שיעור
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 3. 🧍‍♀️ מסך נרשמות
+- טבלת `ag-grid` המציגה:
+  - שם פרטי, שם משפחה, טלפון, ת"ז, שיעור, מחיר, סטטוס תשלום
+- ולידציה לפי סוגי השדות
+- עמודת "פרטים" – לחיצה פותחת דיאלוג עם מידע נוסף
+- נרשמות שלא שילמו – שורה מודגשת (אם בוצע אתגר)
+- כפתור "הוספת נרשמת" – פותח חלון עם טופס חדש (אם נבחר באתגר)
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🛠️ התקנה והרצה
+
+```bash
+# התקנת חבילות
+npm install
+
+# הרצת פיתוח
+ng serve
